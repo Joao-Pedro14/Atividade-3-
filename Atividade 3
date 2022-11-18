@@ -1,0 +1,56 @@
+importar  tkinter  como  tk
+de  tkinter  import  ttk
+da  importação tkinter  END
+
+janela  =  tk . Tk ()
+janela . título ( "Cálculo do IMC - Índice de Massa Corporal" )
+janela . geometria ( "500x300" )
+
+
+label_nome  =  ttk . Label ( janela , text = "Nome do Paciente: " )
+label_nome . grid ( linha  =  0 , coluna =  0 , padx =  5 , pady =  5 , sticky = tk . W )
+nome  =  ttk . Entrada ( janela , largura =  50 )
+nome . grade ( linha  =  0 , coluna =  1 , padx =  5 , pady =  5 )
+
+
+label_endereco  =  ttk . Label ( janela , text = "Endereço Completo: " )
+label_endereco . grid ( linha  =  1 , coluna =  0 , padx =  5 , pady =  5 , sticky = tk . W )
+ endereco =  ttk . Entrada ( janela , largura = 50 )
+endereco . grade ( linha  =  1 , coluna =  1 , padx =  5 , pady =  5 )
+
+label_altura  =  ttk . Label ( janela , text = "Altura(cm): " )
+label_altura . grid ( linha  =  2 , coluna =  0 , padx =  5 , pady =  5 , sticky = tk . W )
+altura  =  ttk . Entrada ( janela , largura =  20 )
+altura . grid ( linha  =  2 , coluna =  1 , padx =  5 , pady =  5 , sticky = tk . W )
+
+label_peso  =  ttk . Label ( janela , text = "Peso(Kg): " )
+label_peso . grid ( linha  =  3 , coluna =  0 , padx =  5 , pady =  5 , sticky = tk . W )
+peso  =  ttk . Entrada ( janela , largura =  20 )
+peso . grid ( linha  =  3 , coluna =  1 , padx =  5 , pady =  5 , sticky = tk . W )
+
+ cálculo def ():
+    n  =  nome . obter ()
+    e  =  endereco . obter ()
+    a  =  int ( altura . get ())
+    p  =  int ( peso . get ())
+    a  =  a  *  0,01
+    imc  =  p  / ( a  *  a )
+
+    se  imc  <  18,5 :
+        label_resultado  =  ttk . Label ( janela , text =  f" { n } \n { e } \n Seu IMC é { imc :.1f } . \n Baixo Peso." , width =  28 )
+        label_resultado . grid ( linha  =  2 , coluna  =  1 , stick = tk . E )
+        label_resultado . configuração ( fundo = "branco" )
+    elif  imc  >=  18,5  e  imc  <=  24,99 :
+        label_resultado  =  ttk . Label ( janela , text =  f" { n } \n { e } \n Seu IMC é { imc :.1f } . \n Peso Normal." , largura =  28 )
+        label_resultado . grid ( linha  =  2 , coluna  =  1 , stick = tk . E )
+        label_resultado . configuração ( fundo = "branco" )
+    elif  imc  >=  25  e  imc  <=  29,99 :
+        label_resultado  =  ttk . Label ( janela , text =  f" { n } \n { e } \n Seu IMC é { imc :.1f } . \n Sobrepeso." , largura =  28 )
+        label_resultado . grid ( linha  =  2 , coluna  =  1 , stick = tk . E )
+        label_resultado . configuração ( fundo = "branco" )
+    senão :
+        label_resultado  =  ttk . Label ( janela , text =  f" { n } \n { e } \n Seu IMC é { imc :.1f } . \n Obesidade." , largura =  28 )
+        label_resultado . grid ( linha  =  2 , coluna  =  1 , stick = tk . E )
+        label_resultado . configuração ( fundo = "branco" )
+
+janela . circuito principal ()
